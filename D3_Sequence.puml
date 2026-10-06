@@ -1,0 +1,17 @@
+@startuml
+actor Buyer
+participant Browser
+participant ProductServlet
+participant CartService
+participant OrderService
+participant OrderDAO
+participant H2
+Buyer -> Browser : checkout
+Browser -> OrderService : checkout(buyerId)
+OrderService -> OrderDAO : create(order, cartItems)
+OrderDAO -> H2 : INSERT order/items + stock update
+H2 --> OrderDAO : generated order id
+OrderDAO --> OrderService : order id
+OrderService --> Browser : success
+Browser --> Buyer : order confirmation
+@enduml

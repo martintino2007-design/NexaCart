@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+actor Buyer
+actor Seller
+actor Admin
+rectangle DailyMart {
+ Buyer -- (Register/Login)
+ Buyer -- (Browse/Search Products)
+ Buyer -- (Manage Cart)
+ Buyer -- (Mock Checkout)
+ Buyer -- (View Order History)
+ Buyer -- (Review Delivered Product)
+ Seller -- (Register/Login)
+ Seller -- (Manage Listings)
+ Seller -- (View Incoming Orders)
+ Admin -- (View Users)
+ Admin -- (View All Orders)
+ Admin -- (Moderate Listings)
+}
+@enduml
